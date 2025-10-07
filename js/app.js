@@ -13,7 +13,34 @@ const AppState = {
   currentFactIndex: 0,
   completedSections: [],
   earnedStickers: [],
-  currentlyPlaying: null
+  currentlyPlaying: null,
+  unsplashCache: {}
+};
+
+// Unsplash photo mappings (curated collection of high-quality China images)
+const UNSPLASH_PHOTOS = {
+  // Festivals
+  'festival_dragon': 'https://images.unsplash.com/photo-1548624313-615b676ab8b7?w=800&h=600&fit=crop', // Dragon Dance
+  'festival_lanterns': 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop', // Lanterns
+  'festival_mooncake': 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=800&h=600&fit=crop', // Moon Festival
+
+  // Food
+  'food_dumplings': 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&h=600&fit=crop', // Dumplings
+  'food_noodles': 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop', // Noodles
+  'food_mooncake': 'https://images.unsplash.com/photo-1602247858333-f8796eb3c17e?w=800&h=600&fit=crop', // Mooncakes
+
+  // Animals
+  'animal_panda': 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&h=600&fit=crop', // Panda
+  'animal_red_panda': 'https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=800&h=600&fit=crop', // Red Panda
+  'animal_monkey': 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800&h=600&fit=crop', // Monkey
+
+  // Landmarks
+  'landmark_great_wall': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=600&fit=crop', // Great Wall
+  'landmark_terracotta': 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=600&fit=crop', // Terracotta Warriors
+
+  // Clothing
+  'clothing_qipao': 'https://images.unsplash.com/photo-1564510714747-69c3bc1fab41?w=800&h=600&fit=crop', // Qipao
+  'clothing_hanfu': 'https://images.unsplash.com/photo-1594735287965-be7893a11f54?w=800&h=600&fit=crop' // Hanfu
 };
 
 // ========================================
@@ -50,9 +77,9 @@ function getFallbackContent() {
 }
 
 /**
- * Play audio with mute check
+ * Play audio with Web Speech API for Mandarin
  */
-function playAudio(filename, button = null) {
+function playAudio(text, lang = 'zh-CN', button = null) {
   if (AppState.audioMuted) {
     console.log('Audio muted');
     return;
@@ -60,11 +87,32 @@ function playAudio(filename, button = null) {
 
   // Stop currently playing audio
   if (AppState.currentlyPlaying) {
-    AppState.currentlyPlaying.pause();
-    AppState.currentlyPlaying.currentTime = 0;
+    window.speechSynthesis.cancel();
   }
 
-  const audio = new Audio(`assets/audio/${filename}`);
+  // Check if Web Speech API is supported
+  if (!('speechSynthesis' in window)) {
+    console.warn('Web Speech API not supported');
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = 0.8; // Slower speed for learning
+  utterance.pitch = 1.1; // Slightly higher pitch for child-friendly voice
+  utterance.volume = 1.0;
+
+  // Try to find a Chinese voice
+  const voices = window.speechSynthesis.getVoices();
+  const chineseVoice = voices.find(voice =>
+    voice.lang.startsWith('zh') ||
+    voice.lang === 'zh-CN' ||
+    voice.lang === 'zh-TW'
+  );
+
+  if (chineseVoice) {
+    utterance.voice = chineseVoice;
+  }
 
   // Mark button as playing
   if (button) {
@@ -72,19 +120,24 @@ function playAudio(filename, button = null) {
     button.setAttribute('aria-pressed', 'true');
   }
 
-  audio.play().catch(error => {
-    console.log('Audio playback failed:', error);
-  });
-
-  audio.addEventListener('ended', () => {
+  utterance.onend = () => {
     if (button) {
       button.classList.remove('playing');
       button.setAttribute('aria-pressed', 'false');
     }
     AppState.currentlyPlaying = null;
-  });
+  };
 
-  AppState.currentlyPlaying = audio;
+  utterance.onerror = (error) => {
+    console.log('Speech synthesis error:', error);
+    if (button) {
+      button.classList.remove('playing');
+      button.setAttribute('aria-pressed', 'false');
+    }
+  };
+
+  window.speechSynthesis.speak(utterance);
+  AppState.currentlyPlaying = utterance;
 }
 
 /**
@@ -140,7 +193,20 @@ function announce(message) {
 // ========================================
 
 /**
- * Render category cards
+ * Get Unsplash photo URL for image reference
+ */
+function getPhotoURL(imgRef) {
+  // Check if we have an Unsplash URL for this image
+  if (UNSPLASH_PHOTOS[imgRef]) {
+    return UNSPLASH_PHOTOS[imgRef];
+  }
+
+  // Fallback to SVG if no Unsplash photo available
+  return `assets/images/${imgRef}.svg`;
+}
+
+/**
+ * Render category cards with real photography
  */
 function renderCards(category, containerSelector) {
   const container = document.querySelector(containerSelector);
@@ -153,9 +219,11 @@ function renderCards(category, containerSelector) {
     card.className = 'card';
     card.setAttribute('data-index', index);
 
+    const photoURL = getPhotoURL(item.imgRef);
+
     card.innerHTML = `
       <img
-        src="assets/images/${item.imgRef}.svg"
+        src="${photoURL}"
         alt="${item.title}"
         class="card-image"
         loading="lazy"
@@ -166,20 +234,21 @@ function renderCards(category, containerSelector) {
         <button
           class="play-button"
           aria-label="Play ${item.title} sound"
-          data-sfx="${item.sfx}"
+          data-title="${item.title}"
         >
-          <span class="play-icon" aria-hidden="true">▶️</span>
-          <span>Play Sound</span>
+          <span class="play-icon" aria-hidden="true">🔊</span>
+          <span>Hear It!</span>
         </button>
       </div>
     `;
 
-    // Add audio event listener
+    // Add audio event listener with Web Speech API
     const playBtn = card.querySelector('.play-button');
     playBtn.addEventListener('click', function() {
-      playSFX(this.dataset.sfx);
-      this.classList.add('playing');
-      setTimeout(() => this.classList.remove('playing'), 1000);
+      // Speak the title in Mandarin if available, otherwise English
+      const text = item.title;
+      playAudio(text, 'zh-CN', this);
+      announce(`Playing ${item.title}`);
     });
 
     container.appendChild(card);
@@ -210,7 +279,8 @@ function renderSoundboard() {
     `;
 
     button.addEventListener('click', function() {
-      playAudio(this.dataset.audio, this);
+      // Use Web Speech API to speak the Mandarin phrase
+      playAudio(phrase.zh, 'zh-CN', this);
       announce(`Playing: ${phrase.en}`);
     });
 
@@ -713,8 +783,80 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // INITIALIZATION
 // ========================================
 
+/**
+ * Hide loading screen
+ */
+function hideLoadingScreen() {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    setTimeout(() => {
+      loadingScreen.classList.add('hidden');
+    }, 2000); // Show loading animation for 2 seconds
+  }
+}
+
+/**
+ * Initialize Web Speech API voices
+ */
+function initSpeechSynthesis() {
+  // Load voices (needed for some browsers)
+  if ('speechSynthesis' in window) {
+    // Load voices immediately
+    window.speechSynthesis.getVoices();
+
+    // Also load when voices change (Chrome needs this)
+    window.speechSynthesis.onvoiceschanged = () => {
+      window.speechSynthesis.getVoices();
+      console.log('Speech synthesis voices loaded');
+    };
+  }
+}
+
+/**
+ * Setup lazy loading for images
+ */
+function setupLazyLoading() {
+  // Check if IntersectionObserver is supported
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+
+          // Add fade-in animation
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.5s ease-in-out';
+
+          img.onload = () => {
+            img.style.opacity = '1';
+          };
+
+          // If image is already loaded
+          if (img.complete) {
+            img.style.opacity = '1';
+          }
+
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '50px',
+      threshold: 0.01
+    });
+
+    // Observe all images with loading="lazy"
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
 async function init() {
   console.log('Initializing Discover China!');
+
+  // Initialize Web Speech API
+  initSpeechSynthesis();
 
   // Load content
   await loadContent();
@@ -733,6 +875,12 @@ async function init() {
   renderFacts();
   initDragDropGame();
   renderStickerBook();
+
+  // Setup lazy loading for all dynamically loaded images
+  setupLazyLoading();
+
+  // Hide loading screen
+  hideLoadingScreen();
 
   console.log('Discover China initialized!');
   announce('Welcome to Discover China! Use tab to navigate.');

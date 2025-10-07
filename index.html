@@ -3,44 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover China! An interactive educational website for 4-year-olds to learn about Chinese culture through images, sounds, and fun activities.">
+  <meta name="description" content="Discover China! An interactive educational website for 4-year-olds to learn about Chinese culture through beautiful images, sounds, and fun activities.">
   <title>Discover China! - Learn About Chinese Culture</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700&family=Fredoka:wght@400;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700;800&family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Professional Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Lucide Icons (Professional Icon Library) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content animate__animated animate__pulse animate__infinite">
+      <div class="panda-loader">🐼</div>
+      <h2>Loading Discover China!</h2>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Global Audio Controls -->
   <div class="audio-controls" role="toolbar" aria-label="Audio controls">
-    <button id="globalMute" class="control-btn" aria-label="Mute all sounds" aria-pressed="false">
-      <span class="icon">🔊</span>
-      <span class="label">Sound On</span>
+    <button id="globalMute" class="control-btn" aria-label="Toggle sound" aria-pressed="false">
+      <i data-lucide="volume-2" class="icon"></i>
+      <span class="label">Sound</span>
     </button>
     <button id="reduceMotion" class="control-btn" aria-label="Reduce animations" aria-pressed="false">
-      <span class="icon">🎬</span>
-      <span class="label">Motion On</span>
+      <i data-lucide="zap" class="icon"></i>
+      <span class="label">Motion</span>
     </button>
   </div>
 
   <!-- Header -->
-  <header role="banner">
+  <header role="banner" class="animate__animated animate__fadeInDown">
     <div class="header-container">
       <div class="logo">
-        <img src="assets/images/hero_panda.svg" alt="Panda mascot holding a lantern" class="mascot-small">
+        <div class="mascot-icon">🐼</div>
         <h1 class="site-title">Discover China!</h1>
       </div>
       <nav aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="#welcome">Home</a></li>
-          <li><a href="#festivals">Festivals</a></li>
-          <li><a href="#food">Food</a></li>
-          <li><a href="#animals">Animals</a></li>
-          <li><a href="#phrases">Say Hello</a></li>
-          <li><a href="#activities">Play</a></li>
+          <li><a href="#welcome"><i data-lucide="home"></i> Home</a></li>
+          <li><a href="#festivals"><i data-lucide="sparkles"></i> Festivals</a></li>
+          <li><a href="#food"><i data-lucide="cookie"></i> Food</a></li>
+          <li><a href="#animals"><i data-lucide="paw-print"></i> Animals</a></li>
+          <li><a href="#phrases"><i data-lucide="message-circle"></i> Say Hello</a></li>
+          <li><a href="#activities"><i data-lucide="gamepad-2"></i> Play</a></li>
         </ul>
       </nav>
     </div>
@@ -52,118 +70,168 @@
     <!-- Section 1: Welcome / Hero -->
     <section id="welcome" class="section hero-section">
       <div class="hero-content">
-        <img src="assets/images/hero_panda.svg" alt="Panda holds lantern under small fireworks at night" class="hero-image">
-        <div class="hero-text">
+        <div class="hero-image-container animate__animated animate__fadeIn">
+          <img
+            src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&h=800&fit=crop"
+            alt="Beautiful Chinese lanterns glowing at night"
+            class="hero-image"
+            loading="eager"
+          >
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-text animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="hero-icon">🏮</div>
           <h2 class="hero-title">Welcome to China!</h2>
           <p class="hero-subtitle">Let's explore together!</p>
-          <a href="#festivals" class="cta-button" role="button">Let's Explore!</a>
+          <a href="#festivals" class="cta-button" role="button">
+            <span>Let's Explore!</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Section 2: Festivals -->
     <section id="festivals" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">🏮</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="sparkles" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Chinese Festivals</h2>
         <p class="section-subtitle">Celebrations with lights and joy!</p>
       </div>
       <div class="card-grid" data-category="festivals">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards will be generated by JavaScript with real photos -->
       </div>
-      <a href="#food" class="next-button" role="button">Next: Food →</a>
+      <a href="#food" class="next-button" role="button">
+        <span>Next: Food</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 3: Food -->
     <section id="food" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">🥟</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="cookie" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Yummy Chinese Food</h2>
         <p class="section-subtitle">Delicious treats to share!</p>
       </div>
       <div class="card-grid" data-category="food">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards will be generated by JavaScript with real photos -->
       </div>
-      <a href="#animals" class="next-button" role="button">Next: Animals →</a>
+      <a href="#animals" class="next-button" role="button">
+        <span>Next: Animals</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 4: Animals -->
     <section id="animals" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">🐼</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="paw-print" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Amazing Animals</h2>
         <p class="section-subtitle">Furry friends from China!</p>
       </div>
       <div class="card-grid" data-category="animals">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards will be generated by JavaScript with real photos -->
       </div>
-      <a href="#landmarks" class="next-button" role="button">Next: Places →</a>
+      <a href="#landmarks" class="next-button" role="button">
+        <span>Next: Places</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 5: Landmarks -->
     <section id="landmarks" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">🏯</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="landmark" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Special Places</h2>
         <p class="section-subtitle">Amazing things to see!</p>
       </div>
       <div class="card-grid" data-category="landmarks">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards will be generated by JavaScript with real photos -->
       </div>
-      <a href="#clothing" class="next-button" role="button">Next: Clothes →</a>
+      <a href="#clothing" class="next-button" role="button">
+        <span>Next: Clothes</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 6: Clothing -->
     <section id="clothing" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">👘</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="shirt" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Beautiful Clothes</h2>
         <p class="section-subtitle">Pretty dresses and robes!</p>
       </div>
       <div class="card-grid" data-category="clothing">
-        <!-- Cards will be generated by JavaScript -->
+        <!-- Cards will be generated by JavaScript with real photos -->
       </div>
-      <a href="#phrases" class="next-button" role="button">Next: Say Hello →</a>
+      <a href="#phrases" class="next-button" role="button">
+        <span>Next: Say Hello</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 7: Say Hello in Mandarin -->
     <section id="phrases" class="section content-section phrases-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">💬</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="message-circle" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Say Hello in Mandarin!</h2>
         <p class="section-subtitle">Press to hear Chinese words!</p>
       </div>
       <div class="soundboard" id="soundboard">
         <!-- Phrase buttons will be generated by JavaScript -->
       </div>
-      <a href="#fun-facts" class="next-button" role="button">Next: Fun Facts →</a>
+      <a href="#fun-facts" class="next-button" role="button">
+        <span>Next: Fun Facts</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 8: Fun Facts -->
     <section id="fun-facts" class="section content-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">✨</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="star" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Fun Facts!</h2>
         <p class="section-subtitle">Cool things to know!</p>
       </div>
       <div class="carousel-container">
         <button class="carousel-btn prev-btn" aria-label="Previous fact">
-          <span aria-hidden="true">←</span>
+          <i data-lucide="chevron-left"></i>
         </button>
         <div class="carousel" id="factsCarousel">
           <!-- Facts will be generated by JavaScript -->
         </div>
         <button class="carousel-btn next-btn" aria-label="Next fact">
-          <span aria-hidden="true">→</span>
+          <i data-lucide="chevron-right"></i>
         </button>
       </div>
-      <a href="#activities" class="next-button" role="button">Next: Play Games →</a>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <a href="#activities" class="next-button" role="button">
+        <span>Next: Play Games</span>
+        <i data-lucide="chevron-right"></i>
+      </a>
     </section>
 
     <!-- Section 9: Activities & Rewards -->
     <section id="activities" class="section content-section activities-section">
-      <div class="section-header">
-        <span class="section-icon" aria-hidden="true">🎮</span>
+      <div class="section-header animate__animated animate__fadeIn">
+        <div class="section-icon-wrapper">
+          <i data-lucide="gamepad-2" class="section-icon-lucide"></i>
+        </div>
         <h2 class="section-title">Let's Play!</h2>
         <p class="section-subtitle">Match and have fun!</p>
       </div>
@@ -171,7 +239,7 @@
       <!-- Drag and Drop Game -->
       <div class="game-container">
         <h3 class="game-title">Match the Foods!</h3>
-        <p class="game-instructions">Drag the food to the plate!</p>
+        <p class="game-instructions">Drag the food to the right plate!</p>
 
         <div class="drag-drop-game">
           <div class="draggable-items" id="draggableItems">
@@ -185,13 +253,19 @@
 
       <!-- Sticker Book -->
       <div class="sticker-book-container">
-        <h3 class="game-title">Your Sticker Collection!</h3>
+        <h3 class="game-title">
+          <i data-lucide="award"></i>
+          Your Sticker Collection!
+        </h3>
         <div class="sticker-book" id="stickerBook">
-          <!-- Stickers will be added as earned -->
+          <p class="empty-state">Complete activities to earn stickers!</p>
         </div>
       </div>
 
-      <a href="#welcome" class="next-button" role="button">Start Again! →</a>
+      <a href="#welcome" class="next-button" role="button">
+        <span>Start Again!</span>
+        <i data-lucide="refresh-cw"></i>
+      </a>
     </section>
 
   </main>
@@ -200,26 +274,37 @@
   <footer role="contentinfo">
     <div class="footer-container">
       <p class="footer-text">Made with ❤️ for young explorers</p>
-      <a href="#grown-ups" class="grown-ups-link">Grown-Ups: Teaching Tips</a>
-      <p class="footer-credits">Illustrations and sounds created for educational purposes</p>
+      <a href="#grown-ups" class="grown-ups-link" id="grownUpsLink">
+        <i data-lucide="info"></i>
+        Grown-Ups: Teaching Tips
+      </a>
+      <p class="footer-credits">Professional photography courtesy of Unsplash • Icons by Lucide</p>
     </div>
   </footer>
 
   <!-- Reward Modal -->
   <div id="rewardModal" class="modal" role="dialog" aria-labelledby="rewardTitle" aria-hidden="true">
-    <div class="modal-content">
+    <div class="modal-content animate__animated animate__bounceIn">
       <h2 id="rewardTitle">You Did It!</h2>
       <div class="reward-sticker" id="rewardSticker">🌟</div>
       <p class="reward-message" id="rewardMessage">You earned a sticker!</p>
-      <button class="modal-close-btn" id="modalCloseBtn">Keep Exploring!</button>
+      <button class="modal-close-btn" id="modalCloseBtn">
+        <span>Keep Exploring!</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
     </div>
   </div>
 
   <!-- Grown-Ups Info Modal -->
   <div id="grownUpsModal" class="modal" role="dialog" aria-labelledby="grownUpsTitle" aria-hidden="true">
     <div class="modal-content">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h2 id="grownUpsTitle">For Parents & Teachers</h2>
+      <button class="modal-close" aria-label="Close">
+        <i data-lucide="x"></i>
+      </button>
+      <h2 id="grownUpsTitle">
+        <i data-lucide="book-open"></i>
+        For Parents & Teachers
+      </h2>
       <div class="grown-ups-content">
         <h3>Teaching Tips:</h3>
         <ul>
@@ -256,5 +341,10 @@
 
   <!-- JavaScript -->
   <script src="js/app.js"></script>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
