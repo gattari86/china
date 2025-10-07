@@ -53,10 +53,15 @@ const UNSPLASH_PHOTOS = {
 async function loadContent() {
   try {
     const response = await fetch('assets/content.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     AppState.contentData = await response.json();
-    console.log('Content loaded successfully');
+    console.log('✅ Content loaded successfully:', AppState.contentData);
+    console.log('📊 Festivals count:', AppState.contentData.festivals?.length);
+    console.log('📊 Food count:', AppState.contentData.food?.length);
   } catch (error) {
-    console.error('Error loading content:', error);
+    console.error('❌ Error loading content:', error);
     AppState.contentData = getFallbackContent();
   }
 }
@@ -209,9 +214,20 @@ function getPhotoURL(imgRef) {
  * Render category cards with real photography
  */
 function renderCards(category, containerSelector) {
+  console.log(`🎨 Rendering ${category} cards...`);
   const container = document.querySelector(containerSelector);
-  if (!container || !AppState.contentData[category]) return;
 
+  if (!container) {
+    console.error(`❌ Container not found: ${containerSelector}`);
+    return;
+  }
+
+  if (!AppState.contentData[category]) {
+    console.error(`❌ No content data for category: ${category}`);
+    return;
+  }
+
+  console.log(`✅ Found ${AppState.contentData[category].length} items for ${category}`);
   container.innerHTML = '';
 
   AppState.contentData[category].forEach((item, index) => {
