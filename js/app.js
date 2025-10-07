@@ -18,29 +18,30 @@ const AppState = {
 };
 
 // Unsplash photo mappings (curated collection of high-quality China images)
+// Using source.unsplash.com for more reliable image delivery
 const UNSPLASH_PHOTOS = {
   // Festivals - matching content.json imgRef names
-  'festival_dragon': 'https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?w=800&h=600&fit=crop', // Red lanterns
-  'festival_boat': 'https://images.unsplash.com/photo-1535158880142-a0d90febf4b4?w=800&h=600&fit=crop', // Dragon boat
-  'festival_moon': 'https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?w=800&h=600&fit=crop', // Full moon
+  'festival_dragon': 'https://source.unsplash.com/800x600/?chinese-lanterns,red-lanterns',
+  'festival_boat': 'https://source.unsplash.com/800x600/?dragon-boat,china',
+  'festival_moon': 'https://source.unsplash.com/800x600/?full-moon,night',
 
   // Food - matching content.json imgRef names
-  'food_dumpling': 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=800&h=600&fit=crop', // Dumplings
-  'food_noodles': 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&h=600&fit=crop', // Chinese noodles (WORKING)
-  'food_mooncake': 'https://images.unsplash.com/photo-1602247858333-f8796eb3c17e?w=800&h=600&fit=crop', // Mooncakes
+  'food_dumpling': 'https://source.unsplash.com/800x600/?dumplings,chinese-food',
+  'food_noodles': 'https://source.unsplash.com/800x600/?chinese-noodles,asian-food',
+  'food_mooncake': 'https://source.unsplash.com/800x600/?mooncake,chinese-dessert',
 
   // Animals - matching content.json imgRef names
-  'animal_panda': 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&h=600&fit=crop', // Giant Panda (WORKING)
-  'animal_red_panda': 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=800&h=600&fit=crop', // Red Panda
-  'animal_monkey': 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800&h=600&fit=crop', // Golden Monkey (WORKING)
+  'animal_panda': 'https://source.unsplash.com/800x600/?panda,giant-panda',
+  'animal_red_panda': 'https://source.unsplash.com/800x600/?red-panda',
+  'animal_monkey': 'https://source.unsplash.com/800x600/?golden-monkey,monkey',
 
   // Landmarks - matching content.json imgRef names
-  'landmark_wall': 'https://images.unsplash.com/photo-1499578124509-1611b77778c8?w=800&h=600&fit=crop', // Great Wall
-  'landmark_warriors': 'https://images.unsplash.com/photo-1570211776045-af3a51a1019f?w=800&h=600&fit=crop', // Terracotta Warriors
+  'landmark_wall': 'https://source.unsplash.com/800x600/?great-wall-china',
+  'landmark_warriors': 'https://source.unsplash.com/800x600/?terracotta-warriors,china',
 
   // Clothing - matching content.json imgRef names
-  'clothing_qipao': 'https://images.unsplash.com/photo-1558007685-be8607d2ef74?w=800&h=600&fit=crop', // Traditional dress
-  'clothing_hanfu': 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop' // Hanfu traditional robe (WORKING)
+  'clothing_qipao': 'https://source.unsplash.com/800x600/?qipao,chinese-dress',
+  'clothing_hanfu': 'https://source.unsplash.com/800x600/?hanfu,traditional-chinese-clothing'
 };
 
 // ========================================
