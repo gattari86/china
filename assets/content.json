@@ -4,19 +4,19 @@
       "title": "Lunar New Year",
       "imgRef": "festival_dragon",
       "sfx": "drum",
-      "copy": "Lanterns glow. Dragons dance!"
+      "copy": "Every year, families celebrate the New Year together! Red lanterns light up the streets. Colorful dragons dance to loud drums. Children get red envelopes with lucky money inside. Everyone eats delicious food and watches fireworks light up the sky!"
     },
     {
-      "title": "Dragon Boat",
+      "title": "Dragon Boat Festival",
       "imgRef": "festival_boat",
       "sfx": "splash",
-      "copy": "Boats race to drum beats!"
+      "copy": "Long boats shaped like dragons race across the water! Teams paddle as fast as they can while drums beat loudly. People cheer from the shore. This festival remembers a brave poet from long ago. Families also eat special rice dumplings wrapped in bamboo leaves!"
     },
     {
-      "title": "Mid-Autumn",
+      "title": "Mid-Autumn Festival",
       "imgRef": "festival_moon",
       "sfx": "chime",
-      "copy": "Families share mooncakes."
+      "copy": "When the moon is biggest and brightest, families gather together. They share round mooncakes filled with sweet paste. Children carry beautiful lanterns that glow in the dark. Everyone looks up at the full moon and tells stories about the moon goddess!"
     }
   ],
   "food": [
@@ -24,67 +24,67 @@
       "title": "Dumplings",
       "imgRef": "food_dumpling",
       "sfx": "yum",
-      "copy": "Little moon pillows."
+      "copy": "Dumplings are like little pillows filled with yummy surprises! Families make them together, folding the dough into half-moon shapes. Inside you might find meat, vegetables, or even sweet fillings. People eat dumplings during Chinese New Year because they look like ancient gold coins!"
     },
     {
       "title": "Noodles",
       "imgRef": "food_noodles",
       "sfx": "slurp",
-      "copy": "Long noodles, long life!"
+      "copy": "In China, noodles are very special! Long noodles mean long life, so people never cut them. You can slurp them loudly - it's okay! Some noodles are thick and chewy, others are thin and slippery. They come in soup or stir-fried with vegetables and meat!"
     },
     {
       "title": "Mooncakes",
       "imgRef": "food_mooncake",
       "sfx": "ding",
-      "copy": "Round and sweet."
+      "copy": "Mooncakes are round like the full moon! They have beautiful patterns pressed on top. Inside is sweet paste made from beans or lotus seeds. Sometimes there's even a salty egg yolk in the middle! Families share mooncakes during the Moon Festival to show they care about each other."
     }
   ],
   "animals": [
     {
-      "title": "Panda",
+      "title": "Giant Panda",
       "imgRef": "animal_panda",
       "sfx": "munch",
-      "copy": "Bamboo buddy."
+      "copy": "Giant pandas are China's most famous animals! They're big and fluffy with black and white fur. Pandas spend most of their day munching on bamboo - they can eat for 12 hours! Baby pandas are tiny, pink, and have no fur. They love to roll, climb, and play. Pandas are very special and live in misty mountains!"
     },
     {
       "title": "Red Panda",
-      "imgRef": "animal_redpanda",
+      "imgRef": "animal_red_panda",
       "sfx": "chirp",
-      "copy": "Rusty tail friend."
+      "copy": "Red pandas are like cute teddy bears with bushy tails! They're much smaller than giant pandas. Their reddish-brown fur keeps them warm in cold mountains. Red pandas use their long tails like blankets when they sleep. They love to eat bamboo leaves and sweet berries. Watch them climb trees - they're amazing!"
     },
     {
       "title": "Golden Monkey",
       "imgRef": "animal_monkey",
       "sfx": "hoo",
-      "copy": "Fluffy and bright."
+      "copy": "Golden monkeys have bright golden-orange fur that shines in the sun! They live high up in snowy mountains with their families. These monkeys have funny blue faces and tiny noses. They jump from tree to tree and love to play together. Baby monkeys ride on their mother's backs!"
     }
   ],
   "landmarks": [
     {
-      "title": "Great Wall",
-      "imgRef": "land_wall",
+      "title": "The Great Wall",
+      "imgRef": "landmark_wall",
       "sfx": "wind",
-      "copy": "A very, very long wall."
+      "copy": "The Great Wall is SO long, you could walk on it for months! It was built a very long time ago to protect China. The wall goes up and down mountains like a giant dragon. You can see it winding through green hills and forests. Imagine all the people who worked together to build something so amazing!"
     },
     {
-      "title": "Terracotta Army",
-      "imgRef": "land_terra",
+      "title": "Terracotta Warriors",
+      "imgRef": "landmark_warriors",
       "sfx": "stone",
-      "copy": "Clay soldiers underground."
+      "copy": "Deep underground, there's an army of clay soldiers! Thousands of them stand in rows, each one different. They were made over 2,000 years ago to protect an emperor. Some warriors ride horses, others hold weapons. They were buried and forgotten until farmers found them by accident. It's like a hidden treasure!"
     }
   ],
   "clothing": [
     {
       "title": "Qipao",
-      "imgRef": "cloth_qipao",
+      "imgRef": "clothing_qipao",
       "sfx": "swish",
-      "copy": "Pretty flower dress."
+      "copy": "The qipao is a beautiful dress with a high collar and pretty buttons down the side! It's usually made from smooth, shiny silk with colorful flower patterns. The dress fits snugly and sometimes has special knots called 'frog buttons.' Women wear qipaos for special celebrations. Each design tells a story with dragons, flowers, or birds!"
     },
     {
       "title": "Hanfu",
-      "imgRef": "cloth_hanfu",
+      "imgRef": "clothing_hanfu",
       "sfx": "swirl",
-      "copy": "Flowing robes."
+      "copy": "Hanfu are ancient Chinese robes that flow when you move! They have wide sleeves that look like wings. People wore hanfu thousands of years ago. The robes come in many beautiful colors - red for celebrations, blue like the sky, or white like clouds. Wearing hanfu makes you feel like a prince or princess from long ago!"
     }
   ],
   "phrases": [

@@ -19,26 +19,26 @@ const AppState = {
 
 // Unsplash photo mappings (curated collection of high-quality China images)
 const UNSPLASH_PHOTOS = {
-  // Festivals
+  // Festivals - matching content.json imgRef names
   'festival_dragon': 'https://images.unsplash.com/photo-1548624313-615b676ab8b7?w=800&h=600&fit=crop', // Dragon Dance
-  'festival_lanterns': 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop', // Lanterns
-  'festival_mooncake': 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=800&h=600&fit=crop', // Moon Festival
+  'festival_boat': 'https://images.unsplash.com/photo-1547306847-b155e1e0aa59?w=800&h=600&fit=crop', // Dragon Boat
+  'festival_moon': 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=800&h=600&fit=crop', // Mid-Autumn
 
-  // Food
-  'food_dumplings': 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&h=600&fit=crop', // Dumplings
+  // Food - matching content.json imgRef names
+  'food_dumpling': 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&h=600&fit=crop', // Dumplings
   'food_noodles': 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop', // Noodles
   'food_mooncake': 'https://images.unsplash.com/photo-1602247858333-f8796eb3c17e?w=800&h=600&fit=crop', // Mooncakes
 
-  // Animals
+  // Animals - matching content.json imgRef names
   'animal_panda': 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&h=600&fit=crop', // Panda
   'animal_red_panda': 'https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=800&h=600&fit=crop', // Red Panda
   'animal_monkey': 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800&h=600&fit=crop', // Monkey
 
-  // Landmarks
-  'landmark_great_wall': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=600&fit=crop', // Great Wall
-  'landmark_terracotta': 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=600&fit=crop', // Terracotta Warriors
+  // Landmarks - matching content.json imgRef names
+  'landmark_wall': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=600&fit=crop', // Great Wall
+  'landmark_warriors': 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=600&fit=crop', // Terracotta Warriors
 
-  // Clothing
+  // Clothing - matching content.json imgRef names
   'clothing_qipao': 'https://images.unsplash.com/photo-1564510714747-69c3bc1fab41?w=800&h=600&fit=crop', // Qipao
   'clothing_hanfu': 'https://images.unsplash.com/photo-1594735287965-be7893a11f54?w=800&h=600&fit=crop' // Hanfu
 };

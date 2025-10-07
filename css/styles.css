@@ -726,20 +726,27 @@ main {
 
 .card-content {
   padding: 1.5rem;
-  text-align: center;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--c-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .card-text {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--c-text);
   margin-bottom: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.8;
+  font-weight: 500;
+  text-align: left;
 }
 
 /* Audio Play Button */
@@ -1619,7 +1626,7 @@ footer {
     --fs-h1: 2rem;
     --fs-h2: 1.5rem;
     --fs-h3: 1.25rem;
-    --fs-body: 1rem;
+    --fs-body: 1.125rem;
     --section-padding: 2rem 1rem;
   }
 
@@ -1630,6 +1637,12 @@ footer {
 
   .nav-list {
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-list a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
 
   .hero-title {
@@ -1640,16 +1653,79 @@ footer {
     font-size: 1.25rem;
   }
 
+  .hero-text {
+    padding: 1.5rem;
+  }
+
+  .hero-image-container {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    padding: 0 0.5rem;
+  }
+
+  .card-content {
+    padding: 1.25rem;
   }
 
   .soundboard {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .phrase-button {
+    padding: 1.5rem 1rem;
+    min-height: 140px;
+  }
+
+  .phrase-zh {
+    font-size: 2rem;
+  }
+
+  .phrase-pinyin {
+    font-size: 1rem;
   }
 
   .drag-drop-game {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .game-container {
+    padding: 1.5rem;
   }
 
   .carousel-container {
@@ -1661,14 +1737,33 @@ footer {
     height: 50px;
   }
 
+  .fact-card {
+    font-size: 1.25rem;
+    padding: 2rem 1rem;
+  }
+
   .audio-controls {
     flex-direction: column;
     top: 0.5rem;
     right: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .control-btn {
+    padding: 0.5rem;
   }
 
   .control-btn .label {
     display: none;
+  }
+
+  .modal-content {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .reward-sticker {
+    font-size: 5rem;
   }
 }
 
