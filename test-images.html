@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - Discover China</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-item h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .test-item img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 4px;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .loading { background: #ffc107; color: #000; }
+        .success { background: #4caf50; color: white; }
+        .error { background: #f44336; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Discover China - Image Loading Test</h1>
+    <p>Testing all Unsplash photo URLs...</p>
+
+    <div id="results"></div>
+
+    <script>
+        const UNSPLASH_PHOTOS = {
+            'festival_dragon': 'https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?w=800&h=600&fit=crop',
+            'festival_boat': 'https://images.unsplash.com/photo-1535158880142-a0d90febf4b4?w=800&h=600&fit=crop',
+            'festival_moon': 'https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?w=800&h=600&fit=crop',
+            'food_dumpling': 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=800&h=600&fit=crop',
+            'food_noodles': 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&h=600&fit=crop',
+            'food_mooncake': 'https://images.unsplash.com/photo-1602247858333-f8796eb3c17e?w=800&h=600&fit=crop',
+            'animal_panda': 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&h=600&fit=crop',
+            'animal_red_panda': 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=800&h=600&fit=crop',
+            'animal_monkey': 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800&h=600&fit=crop',
+            'landmark_wall': 'https://images.unsplash.com/photo-1499578124509-1611b77778c8?w=800&h=600&fit=crop',
+            'landmark_warriors': 'https://images.unsplash.com/photo-1570211776045-af3a51a1019f?w=800&h=600&fit=crop',
+            'clothing_qipao': 'https://images.unsplash.com/photo-1558007685-be8607d2ef74?w=800&h=600&fit=crop',
+            'clothing_hanfu': 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop'
+        };
+
+        const resultsDiv = document.getElementById('results');
+
+        Object.entries(UNSPLASH_PHOTOS).forEach(([key, url]) => {
+            const testItem = document.createElement('div');
+            testItem.className = 'test-item';
+            testItem.innerHTML = `
+                <h3>${key}<span class="status loading" id="status-${key}">LOADING...</span></h3>
+                <img src="${url}" alt="${key}" id="img-${key}">
+                <p><small>${url}</small></p>
+            `;
+            resultsDiv.appendChild(testItem);
+
+            const img = document.getElementById(`img-${key}`);
+            const status = document.getElementById(`status-${key}`);
+
+            img.onload = () => {
+                status.textContent = '✓ SUCCESS';
+                status.className = 'status success';
+                console.log(`✓ ${key} loaded successfully`);
+            };
+
+            img.onerror = () => {
+                status.textContent = '✗ FAILED';
+                status.className = 'status error';
+                console.error(`✗ ${key} failed to load`);
+            };
+        });
+    </script>
+</body>
+</html>
