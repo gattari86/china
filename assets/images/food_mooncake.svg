@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" style="background:#FFF8F0">
+  <rect width="1200" height="1200" fill="#FFF8F0"/>
+  <ellipse cx="600" cy="750" rx="280" ry="50" fill="#8B4513" opacity="0.2"/>
+  <circle cx="600" cy="600" r="250" fill="#D4A574" stroke="#8B6914" stroke-width="6"/>
+  <circle cx="600" cy="600" r="200" fill="#C19A6B"/>
+  <text x="600" y="620" font-family="serif" font-size="120" fill="#8B6914" text-anchor="middle" font-weight="bold">福</text>
+  <circle cx="600" cy="600" r="250" fill="none" stroke="#8B6914" stroke-width="4" stroke-dasharray="20,10"/>
+  <path d="M 600 350 L 600 850" stroke="#8B6914" stroke-width="3" opacity="0.5"/>
+  <path d="M 350 600 L 850 600" stroke="#8B6914" stroke-width="3" opacity="0.5"/>
+  <ellipse cx="500" cy="450" rx="60" ry="15" fill="white" opacity="0.3"/>
+</svg>

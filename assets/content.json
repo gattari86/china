@@ -1,0 +1,158 @@
+{
+  "festivals": [
+    {
+      "title": "Lunar New Year",
+      "imgRef": "festival_dragon",
+      "sfx": "drum",
+      "copy": "Lanterns glow. Dragons dance!"
+    },
+    {
+      "title": "Dragon Boat",
+      "imgRef": "festival_boat",
+      "sfx": "splash",
+      "copy": "Boats race to drum beats!"
+    },
+    {
+      "title": "Mid-Autumn",
+      "imgRef": "festival_moon",
+      "sfx": "chime",
+      "copy": "Families share mooncakes."
+    }
+  ],
+  "food": [
+    {
+      "title": "Dumplings",
+      "imgRef": "food_dumpling",
+      "sfx": "yum",
+      "copy": "Little moon pillows."
+    },
+    {
+      "title": "Noodles",
+      "imgRef": "food_noodles",
+      "sfx": "slurp",
+      "copy": "Long noodles, long life!"
+    },
+    {
+      "title": "Mooncakes",
+      "imgRef": "food_mooncake",
+      "sfx": "ding",
+      "copy": "Round and sweet."
+    }
+  ],
+  "animals": [
+    {
+      "title": "Panda",
+      "imgRef": "animal_panda",
+      "sfx": "munch",
+      "copy": "Bamboo buddy."
+    },
+    {
+      "title": "Red Panda",
+      "imgRef": "animal_redpanda",
+      "sfx": "chirp",
+      "copy": "Rusty tail friend."
+    },
+    {
+      "title": "Golden Monkey",
+      "imgRef": "animal_monkey",
+      "sfx": "hoo",
+      "copy": "Fluffy and bright."
+    }
+  ],
+  "landmarks": [
+    {
+      "title": "Great Wall",
+      "imgRef": "land_wall",
+      "sfx": "wind",
+      "copy": "A very, very long wall."
+    },
+    {
+      "title": "Terracotta Army",
+      "imgRef": "land_terra",
+      "sfx": "stone",
+      "copy": "Clay soldiers underground."
+    }
+  ],
+  "clothing": [
+    {
+      "title": "Qipao",
+      "imgRef": "cloth_qipao",
+      "sfx": "swish",
+      "copy": "Pretty flower dress."
+    },
+    {
+      "title": "Hanfu",
+      "imgRef": "cloth_hanfu",
+      "sfx": "swirl",
+      "copy": "Flowing robes."
+    }
+  ],
+  "phrases": [
+    {
+      "zh": "你好",
+      "pinyin": "Nǐ hǎo",
+      "kid": "nee how",
+      "en": "Hello",
+      "audio": "nihao.mp3"
+    },
+    {
+      "zh": "谢谢",
+      "pinyin": "Xièxie",
+      "kid": "shyeh-shyeh",
+      "en": "Thank you",
+      "audio": "xiexie.mp3"
+    },
+    {
+      "zh": "再见",
+      "pinyin": "Zàijiàn",
+      "kid": "dz-eye jyen",
+      "en": "Goodbye",
+      "audio": "zaijian.mp3"
+    },
+    {
+      "zh": "请",
+      "pinyin": "Qǐng",
+      "kid": "ching",
+      "en": "Please",
+      "audio": "qing.mp3"
+    },
+    {
+      "zh": "好的",
+      "pinyin": "Hǎo de",
+      "kid": "how duh",
+      "en": "Okay",
+      "audio": "haode.mp3"
+    },
+    {
+      "zh": "我叫…",
+      "pinyin": "Wǒ jiào…",
+      "kid": "waw jyao",
+      "en": "My name is…",
+      "audio": "wojiao.mp3"
+    },
+    {
+      "zh": "熊猫",
+      "pinyin": "Xióngmāo",
+      "kid": "shyong-maow",
+      "en": "Panda",
+      "audio": "xiongmao.mp3"
+    },
+    {
+      "zh": "一二三四五",
+      "pinyin": "Yī Èr Sān Sì Wǔ",
+      "kid": "ee are san ss woo",
+      "en": "1–5",
+      "audio": "numbers1_5.mp3"
+    }
+  ],
+  "funFacts": [
+    "Pandas love bamboo.",
+    "Red is a lucky color.",
+    "Dragon boats race to drums.",
+    "Lanterns make warm light.",
+    "The Great Wall twists over hills.",
+    "Chopsticks are little sticks.",
+    "Families share many small dishes.",
+    "Mooncakes are round like the moon."
+  ]
+}
