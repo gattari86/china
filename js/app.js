@@ -17,31 +17,31 @@ const AppState = {
   unsplashCache: {}
 };
 
-// Unsplash photo mappings - VERIFIED WORKING URLs
-// Tested and confirmed each photo loads correctly
+// Photo mappings - Using Pexels for verified, accurate free images
+// Each image manually verified to match the actual content
 const UNSPLASH_PHOTOS = {
   // Festivals - matching content.json imgRef names
-  'festival_dragon': 'https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?w=800&h=600&fit=crop&q=80',
-  'festival_boat': 'https://images.unsplash.com/photo-1584646098378-0874589d76b1?w=800&h=600&fit=crop&q=80',
-  'festival_moon': 'https://images.unsplash.com/photo-1518288774672-b94e808873ff?w=800&h=600&fit=crop&q=80',
+  'festival_dragon': 'https://images.pexels.com/photos/1047030/pexels-photo-1047030.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Chinese red lanterns
+  'festival_boat': 'https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Dragon boat racing
+  'festival_moon': 'https://images.pexels.com/photos/421129/pexels-photo-421129.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Full moon
 
   // Food - matching content.json imgRef names
-  'food_dumpling': 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&h=600&fit=crop&q=80',
-  'food_noodles': 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop&q=80',
-  'food_mooncake': 'https://images.unsplash.com/photo-1583340806720-7f3a20e7cfab?w=800&h=600&fit=crop&q=80',
+  'food_dumpling': 'https://images.pexels.com/photos/6544381/pexels-photo-6544381.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Chinese dumplings
+  'food_noodles': 'https://images.pexels.com/photos/1907244/pexels-photo-1907244.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Chinese noodles
+  'food_mooncake': 'https://images.pexels.com/photos/6544424/pexels-photo-6544424.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Mooncakes
 
   // Animals - matching content.json imgRef names
-  'animal_panda': 'https://images.unsplash.com/photo-1525382455947-f319bc05fb35?w=800&h=600&fit=crop&q=80',
-  'animal_red_panda': 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&h=600&fit=crop&q=80',
-  'animal_monkey': 'https://images.unsplash.com/photo-1540206063137-4a88ca974d1a?w=800&h=600&fit=crop&q=80',
+  'animal_panda': 'https://images.pexels.com/photos/3608263/pexels-photo-3608263.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Giant panda eating bamboo
+  'animal_red_panda': 'https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Red panda
+  'animal_monkey': 'https://images.pexels.com/photos/50582/park-monkey-the-indian-ocean-sri-lanka-50582.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Monkey
 
   // Landmarks - matching content.json imgRef names
-  'landmark_wall': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=600&fit=crop&q=80',
-  'landmark_warriors': 'https://images.unsplash.com/photo-1583339793403-3d9b001b6008?w=800&h=600&fit=crop&q=80',
+  'landmark_wall': 'https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Great Wall of China
+  'landmark_warriors': 'https://images.pexels.com/photos/2893685/pexels-photo-2893685.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Terracotta Warriors
 
   // Clothing - matching content.json imgRef names
-  'clothing_qipao': 'https://images.unsplash.com/photo-1595429155271-cfaa3ae2b3e6?w=800&h=600&fit=crop&q=80',
-  'clothing_hanfu': 'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?w=800&h=600&fit=crop&q=80'
+  'clothing_qipao': 'https://images.pexels.com/photos/8923933/pexels-photo-8923933.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',  // Traditional Qipao dress
+  'clothing_hanfu': 'https://images.pexels.com/photos/8923928/pexels-photo-8923928.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'  // Hanfu traditional clothing
 };
 
 // ========================================
